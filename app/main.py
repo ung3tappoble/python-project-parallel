@@ -12,7 +12,6 @@ from routers.main_router import main_blueprint
 from database.data import create_database
 import websockets
 
-# pip install Flask Flask-SocketIO opencv-python pynput pyserial websockets
 
 create_database()
 app = Flask(__name__, template_folder='static/html')
