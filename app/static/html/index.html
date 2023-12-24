@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallel Process- Project</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.2/socket.io.js"></script>
+</head>
+<body>
+
+    <div id="mouse-data">Mouse Data: X - <span id="mouse-x"></span>, Y - <span id="mouse-y"></span></div>
+    <p>Left button will make screenshot on your cam and save it to the database and for your mouse coordinates also</p>
+
+    <script>
+        const socket = io.connect('http://' + document.domain + ':' + location.port);
+    
+        document.addEventListener('mousemove', function(event) {
+            const mouseX = event.clientX;
+            const mouseY = event.clientY;
+    
+            socket.emit('update_mouse', { x: mouseX, y: mouseY });
+        });
+    
+        socket.on('update_mouse', function(data) {
+            document.getElementById('mouse-x').innerHTML = data.x;
+            document.getElementById('mouse-y').innerHTML = data.y;
+        });
+    </script>
+    
+</body>
+</html>
