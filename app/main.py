@@ -34,9 +34,7 @@ async def capture_webcam_image(cap):
             if ret and frame is not None:
                 _, img_encoded = cv2.imencode('.jpg', frame)
                 img_bytes = img_encoded.tobytes()
-                img_base64 = base64.b64encode(img_bytes).decode('utf-8')
-                await asyncio.sleep(1)
-                socketio.emit('update_webcam', {'image': img_base64})
+                socketio.emit('update_webcam', {'image': img_bytes})
                 main_service.save_mouse_data(None, None, img_bytes)
             else:
                 print("Error: Unable to capture from the webcam.")

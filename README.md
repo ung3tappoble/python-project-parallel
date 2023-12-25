@@ -1,6 +1,6 @@
 # Flask Webcam Streaming and Mouse Tracking
 
-> This project demonstrates a real-time webcam streaming application using Flask and Socket.IO. It also includes mouse tracking functionality where the mouse coordinates and webcam frames are transmitted to the server and displayed on the client-side.
+> This project demonstrates a real-time webcam streaming application using Flask and Socket.IO. It also includes mouse tracking functionality where the mouse coordinates.
 # Setup
 
 
@@ -18,7 +18,8 @@ pip install Flask Flask-SocketIO asyncio opencv-python pynput pyserial websocket
 ```
 
 ## RUN THE APP FROM THE MAIN
-> The application can be launched from the main.py file by clicking F5.
+> The application can be launched from the main.py file by clicking **F5**.
+> * *Make sure you have camera before you run the app.*
 
 # Project Structure
 
